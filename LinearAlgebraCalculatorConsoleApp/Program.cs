@@ -1,16 +1,16 @@
-﻿
-using LinearAlgebraCalculatorConsoleApp.Core;
+﻿using LinearAlgebraCalculatorConsoleApp.Core;
 using LinearAlgebraCalculatorConsoleApp.Models;
 
-var matrix = new Matrix(3, 4, MatrixType.None);
-for(int i=0; i < matrix.RowCount; i++)
+
+Console.WriteLine("Welcome.You can do various linear algebra calculations by this app.");
+
+
+try
 {
-    for(int j=0; j< matrix.ColCount; j++)
-    {
-        matrix.Value[i, j] = new Random().Next(0,50);
-    }
+    MatrixUI.UI();
+}
+catch(Exception e)
+{
+    Console.WriteLine(e.Message); 
 }
 
-var gaussMatrix = matrix.GaussElimination();
-
-var x = gaussMatrix;

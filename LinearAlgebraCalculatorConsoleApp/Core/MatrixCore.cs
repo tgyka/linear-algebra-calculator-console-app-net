@@ -13,9 +13,9 @@ namespace LinearAlgebraCalculatorConsoleApp.Core
         {
             var transpose = new Matrix(matrix.ColCount, matrix.RowCount,MatrixType.Transpose);
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < matrix.RowCount; i++)
             {
-                for (var y = 0; y < 2; y++)
+                for (var y = 0; y < matrix.ColCount; y++)
                 {
                     transpose.Value[y, i] = matrix.Value[i, y];
                 }
