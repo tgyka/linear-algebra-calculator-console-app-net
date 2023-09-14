@@ -33,10 +33,30 @@ namespace LinearAlgebraCalculatorConsoleApp.Core
             {
                 Console.Write("Enter {0} row numbers with a comma (Ex: '3,4,5'): ",(i+1));
                 var numbers = Console.ReadLine().Split(",");
+
+                if(numbers.Length != rowCount)
+                {
+                    Console.WriteLine("Invalid matrix decleration");
+                    CreateMatrix(rowCount);
+                }
+
                 for (int j = 0; j < numbers.Length; j++)
                 {
-                    matrix.Value[i, j] = Double.Parse(numbers[j]);
+                    matrix.SetValue(i, j, Double.Parse(numbers[j]));
                 }
+            }
+
+            Console.Write("Enter result column numbers by top down (Ex: '3,4,5'): ");
+            var resultNumbers = Console.ReadLine().Split(",");
+
+            if (resultNumbers.Length != rowCount)
+            {
+                throw new Exception(String.Format("Please write {0} number with comma", rowCount));
+            }
+
+            for (int j = 0; j < resultNumbers.Length; j++)
+            {
+                matrix.SetValue(j, rowCount, Double.Parse(resultNumbers[j]));
             }
 
             DoCalculation(matrix);
@@ -45,16 +65,14 @@ namespace LinearAlgebraCalculatorConsoleApp.Core
         private static void DoCalculation(Matrix matrix)
         {
             Console.WriteLine("Which calculation ?");
-            var calType = Console.ReadLine();
+            var calType = Console.ReadLine().ToLower();
             switch (calType)
             {
                 case "transpose":
                     var transpose = matrix.Transpose();
-                    transpose.Write();
                     break;
                 case "gauss":
                     var gauss = matrix.GaussElimination();
-                    gauss.Write();
                     break;
                 case "exit":
                     Environment.Exit(0);

@@ -11,25 +11,27 @@ namespace LinearAlgebraCalculatorConsoleApp.Core
     {
         public static Matrix Transpose(this Matrix matrix)
         {
-            var transpose = new Matrix(matrix.ColCount, matrix.RowCount,MatrixType.Transpose);
+            Matrix transpose = new Matrix(matrix.ColCount, matrix.RowCount,MatrixType.Transpose);
 
             for (int i = 0; i < matrix.RowCount; i++)
             {
                 for (var y = 0; y < matrix.ColCount; y++)
                 {
-                    transpose.Value[y, i] = matrix.Value[i, y];
+                    transpose.SetValue(y, i, matrix.Value[i, y]);
                 }
             }
-
+            transpose.Write();
             return transpose;
         }
         
         public static Matrix GaussElimination(this Matrix matrix) 
         {
-            var gaussMatrix = new Matrix(matrix.RowCount,matrix.ColCount,MatrixType.Gauss);
+            Matrix gaussMatrix = new Matrix(matrix.RowCount,matrix.ColCount,MatrixType.Gauss);
             Array.Copy(matrix.Value, gaussMatrix.Value, matrix.Value.Length);
             int rowCount = gaussMatrix.Value.GetLength(0);
             int colCount = gaussMatrix.Value.GetLength(1);
+
+            gaussMatrix.Write();
 
             for (int row = 0; row < rowCount; row++)
             {
@@ -51,6 +53,7 @@ namespace LinearAlgebraCalculatorConsoleApp.Core
                         }
                     }
                 }
+                gaussMatrix.Write();
             }
             return gaussMatrix;
         }

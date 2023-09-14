@@ -19,8 +19,13 @@ namespace LinearAlgebraCalculatorConsoleApp.Models
 
         public int RowCount { get; private set; }
         public int ColCount { get; private set; }
-        public double[,] Value{ get; set; }
+        public double[,] Value{ get; private set; }
         public MatrixType Type { get; private set; }
+
+        public void SetValue(int rowIndex,int columnIndex,double value)
+        {
+            Value[rowIndex,columnIndex] = value;
+        }
 
         public void Write()
         {
@@ -28,10 +33,11 @@ namespace LinearAlgebraCalculatorConsoleApp.Models
             {
                 for (int j = 0; j < ColCount; j++)
                 {
-                    Console.Write(Value[i, j] + "\t");
+                    Console.Write(Value[i, j].ToString("0.##") + "\t");
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("\n");
         }
     }
 

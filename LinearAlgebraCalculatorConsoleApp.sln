@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinearAlgebraCalculatorConsoleApp", "LinearAlgebraCalculatorConsoleApp\LinearAlgebraCalculatorConsoleApp.csproj", "{27BFA4DE-DB53-40AD-B557-148EDFF68CC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinearAlgebraCalculatorConsoleApp", "LinearAlgebraCalculatorConsoleApp\LinearAlgebraCalculatorConsoleApp.csproj", "{27BFA4DE-DB53-40AD-B557-148EDFF68CC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinearAlgebraCalculatorConsoleApp.UnitTest", "LinearAlgebraCalculatorConsoleApp.UnitTest\LinearAlgebraCalculatorConsoleApp.UnitTest.csproj", "{0B22D4E5-CE96-42A7-A097-65A1D8C6D945}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{27BFA4DE-DB53-40AD-B557-148EDFF68CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27BFA4DE-DB53-40AD-B557-148EDFF68CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27BFA4DE-DB53-40AD-B557-148EDFF68CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B22D4E5-CE96-42A7-A097-65A1D8C6D945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B22D4E5-CE96-42A7-A097-65A1D8C6D945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B22D4E5-CE96-42A7-A097-65A1D8C6D945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B22D4E5-CE96-42A7-A097-65A1D8C6D945}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
