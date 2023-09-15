@@ -15,18 +15,18 @@ namespace LinearAlgebraCalculatorConsoleApp.UnitTest
         {
             // Arrange
             var inputMatrix = new Matrix(3, 4,MatrixType.None);
-            inputMatrix.SetValue(0, 0, 3);
-            inputMatrix.SetValue(0, 1, 4);
-            inputMatrix.SetValue(0, 2, 6);
-            inputMatrix.SetValue(1, 0, 32);
-            inputMatrix.SetValue(1, 1, 23);
-            inputMatrix.SetValue(1, 2, 45);
-            inputMatrix.SetValue(2, 0, 4);
-            inputMatrix.SetValue(2, 1, 5);
-            inputMatrix.SetValue(2, 2, 7);
-            inputMatrix.SetValue(0, 3, 8);
-            inputMatrix.SetValue(1, 3, 67);
-            inputMatrix.SetValue(2, 3, 42);
+            inputMatrix.SetValue(0, 0, 2);
+            inputMatrix.SetValue(0, 1, -2);
+            inputMatrix.SetValue(0, 2, 3);
+            inputMatrix.SetValue(1, 0, 1);
+            inputMatrix.SetValue(1, 1, 2);
+            inputMatrix.SetValue(1, 2, -1);
+            inputMatrix.SetValue(2, 0, 3);
+            inputMatrix.SetValue(2, 1, -1);
+            inputMatrix.SetValue(2, 2, 2);
+            inputMatrix.SetValue(0, 3, 2);
+            inputMatrix.SetValue(1, 3, 3);
+            inputMatrix.SetValue(2, 3, 1);
 
 
 
@@ -40,9 +40,9 @@ namespace LinearAlgebraCalculatorConsoleApp.UnitTest
             expectedReducedRowEchelonForm.SetValue(2, 0, 0);
             expectedReducedRowEchelonForm.SetValue(2, 1, 0);
             expectedReducedRowEchelonForm.SetValue(2, 2, 1);
-            expectedReducedRowEchelonForm.SetValue(0, 3, 34.65);
-            expectedReducedRowEchelonForm.SetValue(1, 3, 46.025);
-            expectedReducedRowEchelonForm.SetValue(2, 3, -46.675);
+            expectedReducedRowEchelonForm.SetValue(0, 3, -1);
+            expectedReducedRowEchelonForm.SetValue(1, 3, 4);
+            expectedReducedRowEchelonForm.SetValue(2, 3, 4);
 
             // Act
             var result = inputMatrix.GaussElimination();
@@ -50,7 +50,6 @@ namespace LinearAlgebraCalculatorConsoleApp.UnitTest
             // Assert
             Assert.AreEqual(expectedReducedRowEchelonForm.Value, result.Value);
             Assert.AreEqual(expectedReducedRowEchelonForm.Type, result.Type);
-
         }
 
         [Test]

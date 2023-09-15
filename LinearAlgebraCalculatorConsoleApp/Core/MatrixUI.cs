@@ -11,7 +11,7 @@ namespace LinearAlgebraCalculatorConsoleApp.Core
     {
         public static void UI()
         {
-            Console.Write("Please enter matrix row count: ");
+            Console.Write(ConstMessages.EnterMatrixCount);
             int rowCount;
 
             if (int.TryParse(Console.ReadLine(), out rowCount))
@@ -20,7 +20,7 @@ namespace LinearAlgebraCalculatorConsoleApp.Core
             }
             else
             {
-                Console.WriteLine("Please enter valid number");
+                Console.WriteLine(ConstMessages.EnterValidNumber);
             }
 
             UI();
@@ -31,12 +31,12 @@ namespace LinearAlgebraCalculatorConsoleApp.Core
             var matrix = new Matrix(rowCount, rowCount + 1, MatrixType.None);
             for (int i = 0; i < rowCount; i++)
             {
-                Console.Write("Enter {0} row numbers with a comma (Ex: '3,4,5'): ",(i+1));
+                Console.Write(ConstMessages.EnterRowNumbers, (i+1));
                 var numbers = Console.ReadLine().Split(",");
 
                 if(numbers.Length != rowCount)
                 {
-                    Console.WriteLine("Invalid matrix decleration");
+                    Console.WriteLine(ConstMessages.InvalidMatrixDecleration);
                     CreateMatrix(rowCount);
                 }
 
@@ -46,12 +46,12 @@ namespace LinearAlgebraCalculatorConsoleApp.Core
                 }
             }
 
-            Console.Write("Enter result column numbers by top down (Ex: '3,4,5'): ");
+            Console.Write(ConstMessages.EnterResultColumnNumbers);
             var resultNumbers = Console.ReadLine().Split(",");
 
             if (resultNumbers.Length != rowCount)
             {
-                throw new Exception(String.Format("Please write {0} number with comma", rowCount));
+                throw new Exception(String.Format(ConstMessages.WriteNumberWithComma, rowCount));
             }
 
             for (int j = 0; j < resultNumbers.Length; j++)
@@ -64,7 +64,7 @@ namespace LinearAlgebraCalculatorConsoleApp.Core
 
         private static void DoCalculation(Matrix matrix)
         {
-            Console.WriteLine("Which calculation ?");
+            Console.WriteLine(ConstMessages.SelectCalculationType);
             var calType = Console.ReadLine().ToLower();
             switch (calType)
             {
